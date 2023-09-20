@@ -1,10 +1,10 @@
 import React from 'react';
 
-const Main = () => {
+const Main = ({children}) => {
     return (
-        <div>
-
-        </div>
+        <main>
+            {children}
+        </main>
     );
 };
 
