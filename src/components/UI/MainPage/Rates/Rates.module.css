@@ -1,0 +1,40 @@
+.section{
+    display: flex;
+    flex-direction: column;
+    padding: 24px 60px 118px 60px;
+    gap: 70px;
+}
+
+.title{
+    color: #000;
+    font-family: Ferry, sans-serif;
+    font-size: 45px;
+    font-style: normal;
+    font-weight: 900;
+    line-height: normal;
+    letter-spacing: .45px;
+}
+
+.rates{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 30px;
+}
+
+/* Rate */
+.rate{
+    width: 415px;
+    height: 540px;
+
+    border-radius: 10px;
+    background: #FFF;
+    box-shadow: 0px 0px 20px 0px rgba(0, 0, 0, 0.20);
+}
+
+
+@media screen and (max-width: 950px) {
+    .section{
+        padding: 2px 19px 55px 18px;
+    }
+}

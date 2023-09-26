@@ -1,5 +1,4 @@
 import React from 'react';
-import {Link} from "react-router-dom";
 
 import cl from "./Service.module.css"
 import ServiceImg from '../../../../img/main/service.svg'

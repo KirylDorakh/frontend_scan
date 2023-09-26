@@ -8,7 +8,7 @@
 }
 
 .title{
-    width: 55%;
+    width: 45%;
     color: #000;
     font-family: "Ferry", sans-serif;
     font-size: 60px;
@@ -23,7 +23,7 @@
     flex-direction: column;
     justify-content: space-between;
     align-items: start;
-    width: 40%;
+    width: 35%;
     color: #000;
     font-size: 20px;
     font-style: normal;

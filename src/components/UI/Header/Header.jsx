@@ -25,7 +25,7 @@ const Header = () => {
     }
 
     return (
-        <header className={cl.header}>
+        <header className={cl.header} style={checkedInput ? {position: "fixed"} : {}}>
             <Link to='/'
                   className={cl.headerLogo}
                   style={{backgroundImage: `url(${backgroundImage})`}}

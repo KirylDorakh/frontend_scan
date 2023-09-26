@@ -1,6 +1,6 @@
 
 .header{
-    position: fixed;
+    position: absolute;
     width: 100%;
     height: 93px;
     background-color: #FFFFFF;
@@ -236,9 +236,7 @@
     }
 
     .background{
-
-        position: absolute;
-
+        position: fixed;
         top: 0;
         left: 0;
         background: #029491;
@@ -296,7 +294,7 @@
     }
     .headerLinks {
         display: flex;
-        position: absolute;
+        position: fixed;
         opacity: 0;
         top: 0;
         left: 0;
