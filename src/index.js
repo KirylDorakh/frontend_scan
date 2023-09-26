@@ -1,7 +1,8 @@
 import React from "react";
 import {createRoot} from "react-dom/client";
 
-import {createBrowserRouter, RouterProvider} from "react-router-dom";
+import {createBrowserRouter, Navigate, RouterProvider} from "react-router-dom";
+
 
 import App from "./App.jsx";
 import MainPage from "./pages/MainPage.jsx";
@@ -9,28 +10,34 @@ import ErrorPage from "./ErrorPage.jsx";
 import Search from "./pages/Search.jsx";
 import ResultsOfSearch from "./pages/ResultsOfSearch";
 import Login from "./pages/Login.jsx";
+import {Provider} from "react-redux";
+import {store} from "./reducers";
+
 
 const router = createBrowserRouter([
     {
         path: "/",
         element: <App />,
-        errorElement: <ErrorPage/>,
         children: [
             {
-                path: "main",
+                path: "/",
                 element: <MainPage />
             },
             {
-                path: "search",
+                path: "/search",
                 element: <Search />
             },
             {
-                path: "results",
+                path: "/results",
                 element: <ResultsOfSearch />
             },
             {
-                path: "login",
+                path: "/login",
                 element: <Login />
+            },
+            {
+                path: "*",
+                element: <Navigate to="/" />
             }
         ]
     },
@@ -39,5 +46,7 @@ const router = createBrowserRouter([
 const root = createRoot(document.getElementById("root"))
 
 root.render(
-    <RouterProvider router={router} />
+    <Provider store={store}>
+        <RouterProvider router={router} />
+    </Provider>
 )

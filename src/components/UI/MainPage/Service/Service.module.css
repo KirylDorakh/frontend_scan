@@ -1,0 +1,64 @@
+.section{
+    display: flex;
+    flex-direction: column;
+    margin-top: 93px;
+    padding: 24px 60px;
+    background: no-repeat center right;
+    min-height: 620px;
+}
+
+.title{
+    width: 55%;
+    color: #000;
+    font-family: "Ferry", sans-serif;
+    font-size: 60px;
+    font-style: normal;
+    font-weight: 900;
+    line-height: normal;
+    letter-spacing: 0.6px;
+}
+
+.info{
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    align-items: start;
+    width: 40%;
+    color: #000;
+    font-size: 20px;
+    font-style: normal;
+    font-weight: 400;
+    line-height: normal;
+    letter-spacing: 0.2px;
+}
+
+.serviceImg{
+    display: none;
+}
+
+@media screen and (max-width: 950px) {
+    .section{
+        display: grid;
+        grid-template-rows: 2.5fr 1fr 3.5fr;
+        background-position: bottom;
+        padding: 2px 19px 55px 18px;
+        /*min-height: 1100px;*/
+    }
+
+    .title{
+        grid-row: 1 / span 1;
+        width: 100%;
+    }
+
+    .info{
+        grid-row: 2 / span 1;
+        width: 100%;
+        min-height: 50%;
+    }
+
+    .info :last-child{
+        align-self: center;
+        margin-top: 30px;
+    }
+}
+

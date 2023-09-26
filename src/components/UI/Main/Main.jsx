@@ -1,8 +1,9 @@
 import React from 'react';
+import cl from './Main.module.css'
 
 const Main = ({children}) => {
     return (
-        <main>
+        <main className={cl.mainPage}>
             {children}
         </main>
     );

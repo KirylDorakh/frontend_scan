@@ -1,37 +1,355 @@
+
 .header{
-    max-width: 100%;
+    position: fixed;
+    width: 100%;
     height: 93px;
     background-color: #FFFFFF;
     display: flex;
-    justify-content: space-between;
+    justify-content: start;
     align-items: center;
+    z-index: 3;
 }
 
 .headerLogo{
-    display: flex;
-    align-items: center;
-    justify-content: center;
     margin-left: 60px;
+    width: 141px;
+    height: 141px;
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-position: center center;
 }
 
-@media screen and (max-width: 800px) {
+.headerLinks {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    width: calc(100% - 141px - 60px);
+}
+
+/*Navbar*/
+.navbar{
+    display: flex;
+    justify-content: center;
+    margin: 0 auto;
+}
+
+.navLink{
+    cursor: pointer;
+    color: #000;
+    font-size: 14px;
+    font-weight: 400;
+    line-height: normal;
+    letter-spacing: 0.14px;
+    text-decoration: none;
+
+    margin: 0 20px;
+}
+
+.navLink:hover{
+    color: #029491;
+}
+
+/* Auth buttons */
+
+.headerAuth{
+    display: flex;
+    align-items: center;
+    margin-right: 60px;
+    width: 20%;
+    min-width: 220px;
+    justify-content: space-between;
+}
+
+.line{
+    width: 2px;
+    height: 26px;
+    opacity: 0.6;
+    background: #029491;
+}
+
+.authButton{
+    color: #000;
+    font-size: 14px;
+    font-style: normal;
+    font-weight: 400;
+    line-height: normal;
+    letter-spacing: 0.14px;
+
+    opacity: 0.4;
+
+    cursor: pointer;
+    text-decoration: none;
+}
+
+.loginButton{
+    width: 65px;
+    height: 26px;
+    border-radius: 5px;
+    background: #7CE3E1;
+
+    color: #000;
+    font-size: 14px;
+    font-style: normal;
+    font-weight: 500;
+    line-height: normal;
+    letter-spacing: 0.14px;
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    cursor: pointer;
+    text-decoration: none;
+}
+
+.loginButton:hover{
+    background-color: #5970FF;
+    color: #FFFFFF;
+}
+
+/* Menu Button */
+
+.menuIcon {
+    position: relative;
+    padding: 26px 10px;
+    z-index: 2;
+    display: none;
+    cursor: pointer;
+}
+
+.menuLine {
+    display: block;
+    position: relative;
+    background: #029491;
+    height: 5px;
+    width: 30px;
+}
+
+.menuLine::before, .menuLine::after {
+    content: '';
+    position: absolute;
+    height: 100%;
+    width: 100%;
+    background: #029491;
+}
+
+.menuLine::before {
+    transform: translateY(-10px);
+}
+
+.menuLine::after {
+    transform: translateY(10px);
+}
+
+.menuBtn{
+    position: absolute;
+    top: -100px;
+}
+
+.menuBtn:focus ~ .menuIcon .menuLine::before {
+    transform: translateY(-10px);
+}
+
+.menyBtn:focus ~ .menuIcon .menuLine::after {
+    transform: translateY(10px);
+}
+
+@keyframes openTop {
+    0% {
+        transform: translateY(-5px) rotate(0deg);
+    }
+    50% {
+        transform: translateY(0px) rotate(0deg);
+    }
+    100% {
+        transform: translateY(0px) rotate(90deg);
+    }
+}
+
+@keyframes openMid {
+    50% {
+        transform: rotate(0deg);
+    }
+    100% {
+        transform: rotate(45deg);
+    }
+}
+
+@keyframes openBtm {
+    0% {
+        transform: translateY(5px) rotate(0deg);
+    }
+    50% {
+        transform: translateY(0px) rotate(0deg);
+    }
+    100% {
+        transform: translateY(0px) rotate(90deg);
+    }
+}
+
+@keyframes closedTop {
+    0% {
+        transform: translateY(-5px) rotate(0deg);
+    }
+    50% {
+        transform: translateY(0px) rotate(0deg);
+    }
+    100% {
+        transform: translateY(0px) rotate(90deg);
+    }
+}
+
+@keyframes closedMid {
+    50% {
+        transform: rotate(0deg);
+    }
+    100% {
+        transform: rotate(45deg);
+    }
+}
+
+@keyframes closedBtm {
+    0% {
+        transform: translateY(5px) rotate(0deg);
+    }
+    50% {
+        transform: translateY(0px) rotate(0deg);
+    }
+    100% {
+        transform: translateY(0px) rotate(90deg);
+    }
+}
+
+
+@media screen and (max-width: 950px) {
     .header{
         display: flex;
-        padding: 0 26px 0 14px;
         justify-content: space-between;
         align-items: center;
-        gap: 194px;
     }
 
     .headerLogo{
-        margin-left: 0;
-    }
-
-    .headerLogo img{
+        margin-left: 18px;
+        z-index: 3;
         width: 111px;
         height: 111px;
+        transition: background-image .3s .1s ease-in-out;
     }
 
+    .background{
+
+        position: absolute;
+
+        top: 0;
+        left: 0;
+        background: #029491;
+        width: 100vw;
+        height: 200vw;
+        transform: translateX(1076px);
+        transition: transform .5s ease-in-out;
+    }
+
+    .menuBtn:checked ~ .background {
+        transform: translateX(0);
+        z-index: 1;
+    }
+
+    /*.headerLogo img{*/
+    /*    width: 100%;*/
+    /*    height: 100%;*/
+    /*}*/
+
+    .headerLinks{
+        opacity: 0;
+    }
+
+    .menuIcon {
+        display: block;
+        margin-right: 26px;
+        z-index: 3;
+    }
+
+    .menuLine {
+        animation: closedMid 0.8s backwards;
+        animation-direction: reverse;
+
+    }
+    .menuLine::before {
+        animation: closedTop 0.8s backwards;
+        animation-direction: reverse;
+    }
+    .menuLine::after {
+        animation: closedBtm 0.8s backwards;
+        animation-direction: reverse;
+    }
+
+    .menuBtn:checked ~ .menuIcon .menuLine {
+        animation: openMid 0.8s forwards;
+        background: #FFFFFF;
+    }
+    .menuBtn:checked ~ .menuIcon .menuLine::before {
+        animation: openTop 0.8s forwards;
+        background: #FFFFFF;
+    }
+    .menuBtn:checked ~ .menuIcon .menuLine::after {
+        animation: openBtm 0.8s forwards;
+        background: #FFFFFF;
+    }
+    .headerLinks {
+        display: flex;
+        position: absolute;
+        opacity: 0;
+        top: 0;
+        left: 0;
+        flex-direction: column;
+        justify-content: space-evenly;
+        align-items: center;
+        width: 100vw;
+        height: 100vh;
+        /*font-size: 2rem;*/
+        z-index: 2;
+        transition: opacity .5s ease-in-out;
+    }
+
+    .menuBtn:checked ~ .headerLinks{
+        opacity: 1;
+    }
+
+    .headerLinks .navbar{
+        flex-direction: column;
+        align-items: center;
+        gap: 26px
+    }
+
+    .headerLinks .navbar .navLink{
+        flex-direction: column;
+        color: #fff;
+        font-size: 18px;
+        letter-spacing: 0.16px;
+    }
+
+    .headerLinks .navbar .navLink:hover{
+        flex-direction: column;
+        color: #000;
+    }
+
+    .headerLinks .headerAuth{
+        flex-direction: column;
+        margin: 0;
+    }
+
+    .headerLinks .headerAuth .loginButton{
+        flex-direction: column;
+        width: 295px;
+        height: 52px;
+        font-size: 22px;
+        letter-spacing: .2px;
+    }
+
+    .headerLinks .headerAuth .authButton{
+        font-size: 18px;
+        letter-spacing: .16px;
+        opacity: 0.4;
+    }
 
 }
 

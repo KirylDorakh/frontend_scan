@@ -1,20 +1,28 @@
-import React, {useState} from 'react';
+import React from 'react';
 
-import cl from './MenuButton.module.css'
+import cl from '../Header.module.css'
+import {useDispatch} from "react-redux";
+import {setCheckedInput} from "../../../../reducers/navMenuReducer";
 
-const MenuButton = ({setCheck}) => {
-
+const MenuButton = ({checkedInput}) => {
+    const dispatch = useDispatch()
     const handleCheck = (e) => {
-        setCheck(e.target.checked)
+        dispatch(setCheckedInput(e.target.checked))
     }
 
+
     return (
-        <div className={cl.humburger}>
-            <input type="checkbox" className={cl.menuBtn} id="menu-btn" onClick={handleCheck}/>
+        <>
+            <input type="checkbox"
+                   className={cl.menuBtn}
+                   id="menu-btn"
+                   onClick={handleCheck}
+                   checked={checkedInput}
+            />
             <label htmlFor="menu-btn" className={cl.menuIcon}>
                 <span className={cl.menuLine}></span>
             </label>
-        </div>
+        </>
     );
 };
 

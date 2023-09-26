@@ -1,7 +1,22 @@
-html, body{
+@font-face {
+font-family: "Ferry";
+src: url("../fonts/Ferry/ferry_black.otf") format("truetype");
+    font-style: normal;
+    font-weight: normal;
+}
+
+
+html, body {
     margin:0;
     padding: 0;
     box-sizing: border-box;
 
     font-family: 'Inter', sans-serif;
 }
+
+html {
+    scroll-behavior:smooth;
+}
+
+
+
