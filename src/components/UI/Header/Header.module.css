@@ -220,7 +220,7 @@
 }
 
 
-@media screen and (max-width: 950px) {
+@media screen and (max-width: 1021px) {
     .header{
         display: flex;
         justify-content: space-between;

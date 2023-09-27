@@ -6,7 +6,7 @@ import cl from '../Header.module.css'
 const Navbar = () => {
     return (
         <nav className={cl.navbar}>
-            <Link className={cl.navLink} to={'#'}>Главная</Link>
+            <Link className={cl.navLink} to={'/'}>Главная</Link>
             <Link className={cl.navLink} to={'#'}>Тарифы</Link>
             <Link className={cl.navLink} to={'#'}>FAQ</Link>
         </nav>

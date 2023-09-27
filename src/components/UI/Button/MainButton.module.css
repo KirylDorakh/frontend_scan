@@ -3,7 +3,8 @@
     justify-content: center;
     align-items: center;
 
-    width: 335px;
+    width: 100%;
+    max-width: 355px;
     height: 59px;
 
     border-radius: 5px;
@@ -15,6 +16,11 @@
 
 .link:hover{
     background-color: #7CE3E1;
+    color: #000;
+}
+
+.used{
+    background-color: #D2D2D2;
     color: #000;
 }
 
