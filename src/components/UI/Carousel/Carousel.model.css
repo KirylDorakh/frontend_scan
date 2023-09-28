@@ -1,0 +1,13 @@
+.arrow{
+    border: 0;
+    background-color: #FFFFFF;
+    cursor: pointer;
+    width: 39px;
+    height: 39px;
+    margin: 0;
+}
+
+.arrow-right img{
+    position: relative;
+    left: -10px;
+}

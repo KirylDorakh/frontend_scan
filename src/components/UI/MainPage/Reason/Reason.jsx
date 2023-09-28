@@ -2,10 +2,15 @@ import React from 'react';
 
 import cl from './Reason.module.css'
 
-const Reason = () => {
+const Reason = ({reason}) => {
     return (
         <div className={cl.reason}>
-            Reason 1
+            <div className={cl.logoContainer}>
+                <img src={reason.logo} alt="logo"/>
+            </div>
+            <div>
+                {reason.body}
+            </div>
         </div>
     );
 };

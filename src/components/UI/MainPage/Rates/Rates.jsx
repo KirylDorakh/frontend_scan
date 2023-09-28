@@ -2,8 +2,6 @@ import React from 'react';
 import cl from "./Rates.module.css";
 import RatesList from "../../../RatesList";
 
-
-
 const Rates = () => {
     return (
         <div className={cl.section}>

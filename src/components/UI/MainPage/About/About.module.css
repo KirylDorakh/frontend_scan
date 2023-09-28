@@ -17,11 +17,10 @@
 }
 
 .reasons{
-    /*display: flex;*/
-    z-index: 5;
-    /*align-items: center;*/
-    /*justify-content: center;*/
-    /*gap: 30px;*/
+    display: flex;
+    height: 300px;
+    align-items: center;
+    justify-content: center;
 }
 
 .imageContainer img{

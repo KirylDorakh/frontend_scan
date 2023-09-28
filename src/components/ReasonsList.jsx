@@ -1,14 +1,13 @@
 import React from 'react';
-import Reason from "./UI/MainPage/Reason/Reason";
 
 import cl from './UI/MainPage/About/About.module.css'
-import SimpleSlider from "./UI/Slider/SimpleSlider";
+import Carousel from "./UI/Carousel/Carousel";
 
 const ReasonsList = () => {
+
     return (
         <div className={cl.reasons}>
-            <SimpleSlider/>
-            <Reason/>
+            <Carousel />
         </div>
     );
 };
