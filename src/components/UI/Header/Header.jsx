@@ -36,8 +36,8 @@ const Header = () => {
             <MenuButton checkedInput={checkedInput}/>
 
             <div className={cl.headerLinks }>
-                <Navbar/>
-                <HeaderAuth/>
+                <Navbar handleClick={handleClick}/>
+                <HeaderAuth handleClick={handleClick}/>
             </div>
 
             <div className={cl.background}></div>

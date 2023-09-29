@@ -36,4 +36,10 @@
     .imageContainer img{
         width: 175%;
     }
+
+    .title{
+        font-size: 28px;
+        letter-spacing: .28px;
+        margin-top: 40px;
+    }
 }

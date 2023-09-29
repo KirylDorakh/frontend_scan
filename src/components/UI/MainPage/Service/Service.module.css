@@ -39,13 +39,14 @@
 @media screen and (max-width: 1021px) {
     .section{
         display: grid;
-        grid-template-rows: 2.5fr 1fr 3.5fr;
+        grid-template-rows: .7fr 1fr 3.5fr;
         background-position: bottom;
         padding: 2px 19px 55px 18px;
         /*min-height: 1100px;*/
     }
 
     .title{
+
         grid-row: 1 / span 1;
         width: 100%;
     }
@@ -59,6 +60,11 @@
     .info :last-child{
         align-self: center;
         margin-top: 30px;
+    }
+
+    .title{
+        font-size: 28px;
+        letter-spacing: .28px;
     }
 }
 

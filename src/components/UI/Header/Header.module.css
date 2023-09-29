@@ -7,7 +7,6 @@
     display: flex;
     justify-content: start;
     align-items: center;
-    z-index: 3;
 }
 
 .headerLogo{
@@ -17,6 +16,7 @@
     background-size: cover;
     background-repeat: no-repeat;
     background-position: center center;
+    z-index: 3;
 }
 
 .headerLinks {
@@ -41,7 +41,6 @@
     line-height: normal;
     letter-spacing: 0.14px;
     text-decoration: none;
-
     margin: 0 20px;
 }
 
@@ -49,8 +48,8 @@
     color: #029491;
 }
 
-/* Auth buttons */
 
+/* Auth buttons */
 .headerAuth{
     display: flex;
     align-items: center;
@@ -111,7 +110,7 @@
 .menuIcon {
     position: relative;
     padding: 26px 10px;
-    z-index: 2;
+    z-index: 3;
     display: none;
     cursor: pointer;
 }
@@ -229,7 +228,6 @@
 
     .headerLogo{
         margin-left: 18px;
-        z-index: 3;
         width: 111px;
         height: 111px;
         transition: background-image .3s .1s ease-in-out;
@@ -248,22 +246,11 @@
 
     .menuBtn:checked ~ .background {
         transform: translateX(0);
-        z-index: 1;
-    }
-
-    /*.headerLogo img{*/
-    /*    width: 100%;*/
-    /*    height: 100%;*/
-    /*}*/
-
-    .headerLinks{
-        opacity: 0;
     }
 
     .menuIcon {
         display: block;
         margin-right: 26px;
-        z-index: 3;
     }
 
     .menuLine {
@@ -296,6 +283,7 @@
         display: flex;
         position: fixed;
         opacity: 0;
+        z-index: -10;
         top: 0;
         left: 0;
         flex-direction: column;
@@ -303,12 +291,11 @@
         align-items: center;
         width: 100vw;
         height: 100vh;
-        /*font-size: 2rem;*/
-        z-index: 2;
         transition: opacity .5s ease-in-out;
     }
 
     .menuBtn:checked ~ .headerLinks{
+        z-index: 2;
         opacity: 1;
     }
 

@@ -34,4 +34,9 @@
         flex-direction: column;
         gap: 43px;
     }
+
+    .title{
+        font-size: 28px;
+        letter-spacing: .28px;
+    }
 }

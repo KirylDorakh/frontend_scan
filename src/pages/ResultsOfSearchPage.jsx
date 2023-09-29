@@ -1,6 +1,6 @@
 import React from 'react';
 
-const ResultsOfSearch = () => {
+const ResultsOfSearchPage = () => {
     return (
         <div>
             This is result of searching
@@ -8,4 +8,4 @@ const ResultsOfSearch = () => {
     );
 };
 
-export default ResultsOfSearch;
+export default ResultsOfSearchPage;

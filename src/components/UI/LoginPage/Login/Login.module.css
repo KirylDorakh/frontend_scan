@@ -1,0 +1,196 @@
+.section{
+    height: 672px;
+    display: grid;
+    grid-template-columns: 55% 45%;
+    grid-template-rows: .5fr 1fr;
+
+    margin-top: 93px;
+    padding: 24px 60px;
+}
+
+/*.leftSide{*/
+/*    display: flex;*/
+/*    flex-direction: column;*/
+/*}*/
+
+.title{
+    color: #000;
+    font-family: "Ferry", sans-serif;
+    font-size: 40px;
+    font-style: normal;
+    font-weight: 900;
+    line-height: normal;
+    letter-spacing: 0.8px;
+    margin: 0;
+    grid-column: 1/ span 1;
+    grid-row: 1 / span 1;
+}
+
+.characters{
+    grid-column: 1/ span 1;
+    grid-row: 2 / span 1;
+    justify-self: center;
+    align-self: center;
+    height: 342px;
+    width: auto;
+}
+
+.characters img{
+    height: 100%;
+}
+
+
+.loginContainer{
+    /*justify-self: center;*/
+    align-self: center;
+    grid-column: 2 /span 1;
+    grid-row: 1 /span 2;
+    height: 578px;
+    width: auto;
+
+    display: flex;
+    justify-content: flex-end;
+    align-items: flex-end;
+}
+
+.loginImage {
+    position: absolute;
+    width: 75px;
+    height: 92px;
+    left: -45px;
+    top: -72px;
+    /*z-index: 0;*/
+}
+
+.loginImage img {
+    height: 100%;
+}
+
+.formContainer{
+    display: flex;
+    position: relative;
+    flex-direction: column;
+    gap: 40px;
+    height: 523px;
+    width: 60%;
+    min-width: 335px;
+    max-width: 429px;
+    border-radius: 10px;
+    background: #FFF;
+    box-shadow: 0px 0px 20px 0px rgba(0, 0, 0, 0.15);
+
+    padding: 25px;
+
+    margin-right: 55px;
+}
+
+.loginLinks{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 15px;
+}
+
+.loginLinkContainer{
+    width: 35%;
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    border-bottom: 2px solid #029491;
+}
+
+.regisLinkContainer{
+    width: 65%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    border-bottom: 2px solid #C7C7C7;
+}
+
+.loginLink{
+    cursor: pointer;
+    text-decoration: none;
+
+    color: #029491;
+
+    font-size: 16px;
+    font-style: normal;
+    font-weight: 400;
+    line-height: normal;
+    letter-spacing: 0.32px;
+
+    padding: 8px 0;
+}
+
+.regisLink{
+    color: #C7C7C7;
+
+    text-decoration: none;
+
+    font-size: 16px;
+    font-style: normal;
+    font-weight: 400;
+    line-height: normal;
+    letter-spacing: 0.32px;
+
+    padding: 8px 0;
+}
+
+.loginForm{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.passwordLink{
+    color: #5970FF;
+    font-size: 14px;
+    font-style: normal;
+    font-weight: 400;
+    line-height: normal;
+    letter-spacing: 0.28px;
+    text-decoration-line: underline;
+
+    padding: 15px 0;
+}
+
+@media screen and (max-width: 1021px){
+    .section{
+        height: 1250px;
+        grid-template-columns: 100%;
+        grid-template-rows: 150px 585px 486px;
+        padding-left: 14px;
+    }
+
+    .title{
+        font-size: 22px;
+        letter-spacing: 0.44px;
+    }
+
+    .loginContainer {
+        grid-column: 1 /span 1;
+        grid-row: 2/span 1;
+
+        justify-content: center;
+        align-items: center;
+    }
+
+    .formContainer{
+        margin-right: 0;
+        opacity: 1;
+        transition: opacity .2s ease-in-out;
+    }
+
+    .loginImage {
+        left: 90px;
+        top: -72px;
+
+    }
+
+    .characters{
+        grid-row: 3 /span 1;
+    }
+}

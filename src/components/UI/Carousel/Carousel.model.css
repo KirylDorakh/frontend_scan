@@ -11,3 +11,7 @@
     position: relative;
     left: -10px;
 }
+
+@media screen and (max-width: 1021px) {
+
+}

@@ -4,12 +4,12 @@ import {Link} from "react-router-dom";
 import {useDispatch} from "react-redux";
 import {setCheckedInput} from "../../../../reducers/navMenuReducer";
 
-const HeaderAuth = () => {
-    const dispatch = useDispatch()
+const HeaderAuth = ({handleClick}) => {
+    // const dispatch = useDispatch()
 
-    const handleClick = () => {
-        dispatch(setCheckedInput(false))
-    }
+    // const handleClick = () => {
+    //     dispatch(setCheckedInput(false))
+    // }
 
     return (
         <div className={cl.headerAuth}>

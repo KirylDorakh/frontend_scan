@@ -1,0 +1,16 @@
+
+.leftSide{
+    display: flex;
+    flex-direction: column;
+}
+
+.twoImages{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.oneImage{
+    justify-self: flex-end;
+    align-items: flex-end;
+}
