@@ -44,6 +44,17 @@
     margin: 0 20px;
 }
 
+.activeNavLink{
+    color: #029491;
+    cursor: pointer;
+    font-size: 14px;
+    font-weight: 400;
+    line-height: normal;
+    letter-spacing: 0.14px;
+    text-decoration: none;
+    margin: 0 20px;
+}
+
 .navLink:hover{
     color: #029491;
 }

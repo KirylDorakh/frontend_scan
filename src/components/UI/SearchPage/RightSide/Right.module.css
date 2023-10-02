@@ -1,23 +1,16 @@
 
-.rightSide{
-
+.leftSide{
+    display: flex;
+    flex-direction: column;
 }
 
-.title{
-    color: #000;
-    font-family: "Ferry", sans-serif;
-    font-size: 40px;
-    font-style: normal;
-    font-weight: 900;
-    line-height: normal;
-    letter-spacing: 1.2px;
-    margin: 0;
+.twoImages{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
 }
 
-.info p{
-    margin: 0;
-}
-
-.searchForm{
-
+.oneImage{
+    justify-self: flex-end;
+    align-items: flex-end;
 }

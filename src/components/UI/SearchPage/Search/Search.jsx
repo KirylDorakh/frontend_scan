@@ -2,15 +2,15 @@ import React from 'react';
 
 import cl from './Search.module.css'
 
-import RightSide from "../RightSide/RightSide";
 import LeftSide from "../LeftSide/LeftSide";
+import RightSide from "../RightSide/RightSide";
 
 const Search = () => {
     return (
         <div className={cl.section}>
-            <RightSide />
-
             <LeftSide />
+
+            <RightSide />
         </div>
     );
 };

@@ -1,0 +1,46 @@
+
+.rightSide{
+
+}
+
+.title{
+    color: #000;
+    font-family: "Ferry", sans-serif;
+    font-size: 40px;
+    font-style: normal;
+    font-weight: 900;
+    line-height: normal;
+    letter-spacing: 1.2px;
+    margin: 0;
+}
+
+.info p{
+    margin: 0;
+}
+
+.searchForm{
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+
+    height: 543px;
+    width: auto;
+
+    border-radius: 10px;
+    background: #FFF;
+    box-shadow: 0px 0px 20px 0px rgba(0, 0, 0, 0.15);
+
+    padding-left: 44px;
+
+}
+
+.inputs{
+    grid-column: 1 /span 1;
+}
+
+.checkboxes{
+    grid-column: 2 / span 1;
+}
+
+.submit{
+    grid-column: 2 / span 1;
+}
