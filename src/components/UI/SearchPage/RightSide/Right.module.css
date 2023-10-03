@@ -1,5 +1,5 @@
 
-.leftSide{
+.rightSide{
     display: flex;
     flex-direction: column;
 }
@@ -13,4 +13,24 @@
 .oneImage{
     justify-self: flex-end;
     align-items: flex-end;
+}
+
+@media screen and (max-width: 1021px){
+    .folderImg{
+        display: none;
+    }
+
+    .twoImages {
+        position: relative;
+        align-self: flex-end;
+        top: -800px;
+    }
+
+    .oneImage{
+        align-items: center;
+    }
+
+    .oneImage img{
+        width: 100%;
+    }
 }

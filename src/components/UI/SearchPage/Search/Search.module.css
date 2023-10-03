@@ -1,9 +1,16 @@
 .section{
     display: flex;
 
-    height: 892px;
+    min-height: 892px;
+    width: auto;
 
     margin-top: 93px;
     padding: 24px 60px;
+}
+
+@media screen and (max-width: 1021px){
+    .section{
+        flex-direction: column;
+    }
 }
 

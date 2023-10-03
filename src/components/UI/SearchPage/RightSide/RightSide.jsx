@@ -6,10 +6,10 @@ import RocketImg from "../../../../img/search/rocket.svg";
 
 const RightSide = () => {
     return (
-        <div className={cl.leftSide}>
+        <div className={cl.rightSide}>
             <div className={cl.twoImages}>
                 <img src={DocumentImg} alt='document'/>
-                <img src={FoldersImg} alt='folders'/>
+                <img className={cl.folderImg} src={FoldersImg} alt='folders'/>
             </div>
             <div className={cl.oneImage}>
                 <img src={RocketImg} alt='rocket'/>

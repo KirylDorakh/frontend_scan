@@ -1,0 +1,31 @@
+.checkbox{
+    display: flex;
+    align-items: center;
+    gap: 17px;
+
+    height: 43px;
+    padding: 5px;
+}
+
+.checkbox input{
+    appearance: none;
+    border: 1px solid black;
+    width: 14px;
+    height: 14px;
+
+    background-size: cover;
+
+}
+
+.checkbox label{
+    transition: opacity .2s ease-in-out;
+    opacity: 0.4;
+}
+
+.checkbox input:checked{
+
+}
+
+.checkbox input:checked ~ label{
+    opacity: 1;
+}

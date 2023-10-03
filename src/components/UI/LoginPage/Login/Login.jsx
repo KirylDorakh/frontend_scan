@@ -22,10 +22,6 @@ const Login = () => {
             <div className={cl.characters}>
                 <img src={LoginImg} alt='login'/>
             </div>
-            {/*<div className={cl.leftSide}>*/}
-
-
-            {/*</div>*/}
 
             <div className={cl.loginContainer}>
 
