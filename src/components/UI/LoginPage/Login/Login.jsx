@@ -10,6 +10,7 @@ import LoginForm from "../LoginForm/LoginForm";
 import SocialLogin from "../SocialLogin/SocialLogin";
 import {useSelector} from "react-redux";
 
+
 const Login = () => {
     const checkedInput = useSelector(state => state.navMenu.checkedInput)
     return (
@@ -28,7 +29,7 @@ const Login = () => {
                 <div className={cl.formContainer} style={checkedInput ? {zIndex: -1, opacity: 0} : {}}>
                     <div className={cl.loginLinks}>
                         <div className={cl.loginLinkContainer}>
-                            <Link className={cl.loginLink} to={'login'}>Войти</Link>
+                            <Link className={cl.loginLink} to={'/login'}>Войти</Link>
                         </div>
                         <div className={cl.regisLinkContainer}>
                             <Link className={cl.regisLink} to={'#'}>Зарегистрироваться</Link>
