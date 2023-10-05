@@ -2,7 +2,6 @@ const SET_AUTH = 'SET_AUTH'
 
 const defaultState = {
     isAuth: false,
-    accessToken: '',
     expire: ''
 }
 
@@ -12,7 +11,6 @@ export default function authReducer(state=defaultState, action) {
             return ({
                 ...state,
                 isAuth: action.payload.isAuth,
-                accessToken: action.payload.accessToken,
                 expire: action.payload.expire
             })
 
@@ -21,10 +19,10 @@ export default function authReducer(state=defaultState, action) {
     }
 }
 
-export const setAuth = (bool) => (
+export const setAuth = (data) => (
     {
         type: SET_AUTH,
-        payload: bool
+        payload: data
     }
 )
 

@@ -6,7 +6,6 @@ import MainButton from "../../Button/MainButton";
 import CheckImg from '../../../../img/rates/check.svg'
 
 const Rate = ({rate}) => {
-    console.log(rate.url)
     return (
         <div className={cl.rate}>
 
