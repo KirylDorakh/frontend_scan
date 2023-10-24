@@ -12,16 +12,24 @@ import {Link} from "react-router-dom";
 import MenuButton from "./MenuButton/MenuButton";
 import {useDispatch, useSelector} from "react-redux";
 import {setCheckedInput} from "../../../reducers/navMenuReducer";
+import {setAuth} from "../../../reducers/authReducer";
 
 
 const Header = () => {
     const dispatch = useDispatch()
 
     const checkedInput = useSelector(state => state.navMenu.checkedInput)
+    const checkedAuth = useSelector(state => state.auth.isAuth)
+
     const backgroundImage = checkedInput ? CheckedInputLogo : LogoImg
 
     const handleClick = () => {
         dispatch(setCheckedInput(false))
+    }
+
+    function handleLogOut() {
+        dispatch(setAuth({isAuth: false, expire: ''}))
+        localStorage.clear()
     }
 
     return (
@@ -37,7 +45,11 @@ const Header = () => {
 
             <div className={cl.headerLinks }>
                 <Navbar handleClick={handleClick}/>
-                <HeaderAuth handleClick={handleClick}/>
+                <HeaderAuth
+                    handleClick={handleClick}
+                    handleLogOut={handleLogOut}
+                    checkedAuth={checkedAuth}
+                />
             </div>
 
             <div className={cl.background}></div>

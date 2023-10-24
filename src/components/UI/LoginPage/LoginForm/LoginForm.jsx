@@ -7,31 +7,27 @@ import FormInput from "../../FormInput/FormInput";
 import AuthService from "../../../../API/services/AuthService";
 import {useDispatch, useSelector} from "react-redux";
 import {setAuth} from "../../../../reducers/authReducer";
+import {useNavigate} from "react-router-dom";
 
 const LoginForm = () => {
     const [loginStr, setLoginStr] = useState('');
     const [passwordStr, setPasswordStr] = useState('')
 
     const dispatch = useDispatch()
-    const expire = useSelector(state => state.auth.expire)
+
+    const navigate = useNavigate()
 
     const handleClick = async (event) => {
         event.preventDefault()
         try {
             const response = await AuthService.login(loginStr, passwordStr)
             localStorage.setItem('token', response.data.accessToken)
+            localStorage.setItem('expire', response.data.expire)
             dispatch(setAuth({isAuth: true, ...response.data}))
+            navigate('/')
         } catch (e){
             console.log(e)
         }
-        console.log(localStorage.getItem('token'))
-    }
-
-    const logout = (event) => {
-        event.preventDefault()
-        localStorage.clear()
-        dispatch(setAuth({isAuth: false, expire: ''}))
-        console.log(localStorage.getItem('token'))
     }
 
 
@@ -55,14 +51,6 @@ const LoginForm = () => {
                 type="submit"
             >
                 Войти
-            </FormButton>
-
-            <FormButton
-                onClick={logout}
-                style={{marginTop: 30}}
-                type="submit"
-            >
-                Выйти
             </FormButton>
         </form>
     );

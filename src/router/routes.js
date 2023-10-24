@@ -7,6 +7,30 @@ import LoginPage from "../pages/LoginPage";
 import React from "react";
 
 
+export const privateRouter = createBrowserRouter([
+    {
+        path: "/",
+        element: <App />,
+        children: [
+            {
+                path: "",
+                element: <MainPage />
+            },
+            {
+                path: "search",
+                element: <SearchPage />
+            },
+            {
+                path: "results",
+                element: <ResultsOfSearchPage />
+            },
+            {
+                path: "*",
+                element: <Navigate to="/" />
+            }
+        ]
+    },
+])
 
 export const router = createBrowserRouter([
     {
@@ -18,20 +42,12 @@ export const router = createBrowserRouter([
                 element: <MainPage />
             },
             {
-                path: "/search",
-                element: <SearchPage />
-            },
-            {
-                path: "/results",
-                element: <ResultsOfSearchPage />
-            },
-            {
-                path: "/login",
+                path: "login",
                 element: <LoginPage />
             },
             {
                 path: "*",
-                element: <Navigate to="/" />
+                element: <Navigate to="/login" />
             }
         ]
     },

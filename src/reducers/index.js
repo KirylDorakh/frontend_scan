@@ -5,10 +5,12 @@ import thunk from "redux-thunk";
 
 import navMenuReducer from "./navMenuReducer";
 import authReducer from "./authReducer";
+import userReducer from "./userReducer";
 
 const rootReducer = combineReducers({
     navMenu: navMenuReducer,
-    auth: authReducer
+    auth: authReducer,
+    userInfo: userReducer
 })
 
 export const store = createStore(rootReducer, composeWithDevTools(applyMiddleware(thunk)))

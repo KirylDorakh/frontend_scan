@@ -1,4 +1,3 @@
-import axios from "axios";
 import $api from "../http";
 
 export default class AuthService {
@@ -11,9 +10,4 @@ export default class AuthService {
             }
         )
     }
-    // static async logout() {
-    //     return $api.post(
-    //         "/account/logout"
-    //     )
-    // }
 }

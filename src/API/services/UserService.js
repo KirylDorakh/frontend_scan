@@ -1,8 +1,8 @@
 import $api from "../http";
 
-
 export default class UserService {
-    static fetchUser() {
+
+    static async fetchUser() {
         return $api.get('/account/info')
     }
 }

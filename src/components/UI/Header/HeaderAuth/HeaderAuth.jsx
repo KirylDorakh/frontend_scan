@@ -1,28 +1,20 @@
 import React from 'react';
 import cl from "../Header.module.css";
 import {Link} from "react-router-dom";
-import {useDispatch} from "react-redux";
-import {setCheckedInput} from "../../../../reducers/navMenuReducer";
+import UserInfo from "./UserInfo";
+import Auth from "./Auth";
 
-const HeaderAuth = ({handleClick}) => {
-    // const dispatch = useDispatch()
 
-    // const handleClick = () => {
-    //     dispatch(setCheckedInput(false))
-    // }
-
-    return (
-        <div className={cl.headerAuth}>
-            <Link className={cl.authButton} to={'#'}>Зарегистрироваться</Link>
-            <div className={cl.line}/>
-            <Link className={cl.loginButton}
-                  to={'login'}
-                  onClick={handleClick}
-            >
-                Войти
-            </Link>
-        </div>
-    );
+const HeaderAuth = ({handleClick, handleLogOut, checkedAuth}) => {
+    if(checkedAuth) {
+        return (
+            <UserInfo handleLogOut={handleLogOut}/>
+        )
+    } else {
+        return (
+            <Auth handleClick={handleClick}/>
+        );
+    }
 };
 
 export default HeaderAuth;
