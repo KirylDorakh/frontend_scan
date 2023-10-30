@@ -5,6 +5,7 @@ import {ratesInfo} from "../utils/ratesInfo";
 import Rate from "./UI/MainPage/Rate/Rate";
 
 const RatesList = () => {
+
     return (
         <div className={cl.rates}>
             {

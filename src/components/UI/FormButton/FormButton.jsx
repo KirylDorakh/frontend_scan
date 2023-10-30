@@ -1,9 +1,13 @@
-import React from 'react';
+import React, {useEffect} from 'react';
 import cl from "./FormButton.module.css"
 
-const FormButton = ({children, ...props}) => {
+const FormButton = ({children, blockedBtn, ...props}) => {
+
     return (
-        <button {...props} className={cl.myBtn}>
+        <button {...props}
+                disabled={!blockedBtn}
+                className={blockedBtn ? cl.myBtn : cl.blockedBtn}
+        >
             {children}
         </button>
     );

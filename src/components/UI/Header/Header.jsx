@@ -13,6 +13,7 @@ import MenuButton from "./MenuButton/MenuButton";
 import {useDispatch, useSelector} from "react-redux";
 import {setCheckedInput} from "../../../reducers/navMenuReducer";
 import {setAuth} from "../../../reducers/authReducer";
+import Info from "./Info/Info";
 
 
 const Header = () => {
@@ -41,7 +42,10 @@ const Header = () => {
             >
             </Link>
 
+            <Info/>
+
             <MenuButton checkedInput={checkedInput}/>
+
 
             <div className={cl.headerLinks }>
                 <Navbar handleClick={handleClick}/>
@@ -51,6 +55,7 @@ const Header = () => {
                     checkedAuth={checkedAuth}
                 />
             </div>
+
 
             <div className={cl.background}></div>
 

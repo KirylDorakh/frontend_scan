@@ -8,7 +8,7 @@ export const ratesInfo = [
         description: "Для небольшого исследования",
         background: "#FFB64F",
         url: BegginerImg,
-        currentRate: {current: true, name: "Текущий тариф"},
+        currentRate: {current: false, name: "Текущий тариф"},
         body: {
             include: "В тариф входит:",
             tips: ["Безлимитная история запросов", "Безопасная сделка", "Поддержка 24/7"]

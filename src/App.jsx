@@ -18,7 +18,6 @@ const App = () => {
     // загрузка данных пользователя
     const loadUserData = async () => {
         const response = await UserService.fetchUser()
-        // console.log(response.data.eventFiltersInfo)
         dispatch(setUser(response.data.eventFiltersInfo))
     }
 

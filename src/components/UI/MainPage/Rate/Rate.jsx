@@ -1,11 +1,30 @@
-import React from 'react';
+import React, {useEffect, useState} from 'react';
 
 import cl from './Rate.module.css'
 import MainButton from "../../Button/MainButton";
 
 import CheckImg from '../../../../img/rates/check.svg'
+import {useSelector} from "react-redux";
 
 const Rate = ({rate}) => {
+    const isAuth = useSelector(state => state.auth.isAuth)
+    const [current, changeCurrent] = useState(rate.currentRate.current)
+
+    const currentMain = {
+        height: '100%',
+        padding: '10px 30px 24px 30px',
+        display: 'flex',
+        flexDirection: 'column',
+        justifyContent: 'space-between',
+
+        border: `2px solid ${rate.background}`,
+        borderRadius: '0px 0px 10px 10px',
+    }
+
+    useEffect(() => {
+        if(rate.title === "Beginner") {changeCurrent(isAuth)}
+    }, [isAuth])
+
     return (
         <div className={cl.rate}>
 
@@ -22,8 +41,8 @@ const Rate = ({rate}) => {
                 </div>
             </div>
 
-            <div className={cl.rateMain}>
-                {rate.currentRate.current
+            <div className={cl.rateMain} style={current ? currentMain : {}}>
+                {current
                     ? <div className={cl.current}><p>{rate.currentRate.name}</p></div>
                     : <div><br/></div>
                 }
@@ -51,7 +70,7 @@ const Rate = ({rate}) => {
                 </div>
 
                 <div>
-                    {rate.currentRate.current
+                    {current
                         ?
                         <MainButton link={'#'} >
                             Перейти в личный кабинет

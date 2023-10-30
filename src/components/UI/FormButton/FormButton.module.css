@@ -27,3 +27,28 @@
     background-color: #7CE3E1;
     color: #000;
 }
+
+.blockedBtn{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    border-radius: 5px;
+    background-color: #5970FF;
+    opacity: 0.5;
+
+    min-width: 300px;
+    width: auto;
+    height: 59px;
+
+    color: #FFFFFF;
+    border: 0;
+
+    font-size: 22px;
+    font-style: normal;
+    font-weight: 500;
+    line-height: normal;
+    letter-spacing: 0.44px;
+
+    cursor: pointer;
+}

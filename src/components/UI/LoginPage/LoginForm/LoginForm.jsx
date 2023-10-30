@@ -5,9 +5,11 @@ import FormButton from "../../FormButton/FormButton";
 import FormInput from "../../FormInput/FormInput";
 
 import AuthService from "../../../../API/services/AuthService";
-import {useDispatch, useSelector} from "react-redux";
+import {useDispatch} from "react-redux";
 import {setAuth} from "../../../../reducers/authReducer";
 import {useNavigate} from "react-router-dom";
+import UserService from "../../../../API/services/UserService";
+import {setUser} from "../../../../reducers/userReducer";
 
 const LoginForm = () => {
     const [loginStr, setLoginStr] = useState('');
@@ -24,6 +26,9 @@ const LoginForm = () => {
             localStorage.setItem('token', response.data.accessToken)
             localStorage.setItem('expire', response.data.expire)
             dispatch(setAuth({isAuth: true, ...response.data}))
+
+            const responseUserData = await UserService.fetchUser()
+            dispatch(setUser(response.data.eventFiltersInfo))
             navigate('/')
         } catch (e){
             console.log(e)
@@ -45,13 +50,16 @@ const LoginForm = () => {
                 type="password"
                 required
             />
+
             <FormButton
                 onClick={handleClick}
                 style={{marginTop: 30}}
                 type="submit"
+                blockedBtn={!!(loginStr && passwordStr)}
             >
                 Войти
             </FormButton>
+
         </form>
     );
 };
