@@ -5,8 +5,29 @@ import Checkbox from "../../../Checkbox/Checkbox";
 import FormButton from "../../../FormButton/FormButton";
 
 import cl from './SearchForm.module.css'
+import AuthService from "../../../../../API/services/AuthService";
+import {setAuth} from "../../../../../reducers/authReducer";
+import UserService from "../../../../../API/services/UserService";
+import {setUser} from "../../../../../reducers/userReducer";
 
 const SearchForm = () => {
+
+    const handleClick = async (event) => {
+        event.preventDefault()
+        try {
+            const response = await AuthService.login(loginStr, passwordStr)
+            localStorage.setItem('token', response.data.accessToken)
+            localStorage.setItem('expire', response.data.expire)
+            dispatch(setAuth({isAuth: true, ...response.data}))
+
+            const responseUserData = await UserService.fetchUser()
+            dispatch(setUser(response.data.eventFiltersInfo))
+            navigate('/')
+        } catch (e){
+            console.log(e)
+        }
+    }
+
     return (
         <form className={cl.searchForm}>
             <div className={cl.inputs}>
@@ -36,7 +57,13 @@ const SearchForm = () => {
             </div>
 
             <div className={cl.submit}>
-                <FormButton>Поиск</FormButton>
+                <FormButton
+                    onClick={handleClick}
+                    type="submit"
+                    blockedBtn={!!(loginStr && passwordStr)}
+                >
+                    Поиск
+                </FormButton>
                 <p>* Обязательные к заполнению поля</p>
             </div>
 
