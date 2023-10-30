@@ -13,7 +13,6 @@
 
     padding: 5px;
 
-    gap: 9px;
 }
 
 
@@ -45,6 +44,19 @@
 
 .limit{
     color: #8AC540;
+}
+
+.fetching{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 63px;
+    width: 175px;
+}
+
+.showInfo{
+    display: flex;
+    gap: 9px;
 }
 
 @media screen and (max-width: 1021px) {

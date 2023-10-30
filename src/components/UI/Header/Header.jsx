@@ -1,4 +1,4 @@
-import React from 'react';
+import React, {useEffect} from 'react';
 
 import cl from'./Header.module.css'
 
@@ -14,6 +14,8 @@ import {useDispatch, useSelector} from "react-redux";
 import {setCheckedInput} from "../../../reducers/navMenuReducer";
 import {setAuth} from "../../../reducers/authReducer";
 import Info from "./Info/Info";
+import {setIsFetching, setUser} from "../../../reducers/userReducer";
+import UserService from "../../../API/services/UserService";
 
 
 const Header = () => {
@@ -21,8 +23,22 @@ const Header = () => {
 
     const checkedInput = useSelector(state => state.navMenu.checkedInput)
     const checkedAuth = useSelector(state => state.auth.isAuth)
+    const isFetching = useSelector(state => state.userInfo.isFetching)
 
     const backgroundImage = checkedInput ? CheckedInputLogo : LogoImg
+
+    // загрузка данных пользователя
+    const loadUserData = async () => {
+        const response = await UserService.fetchUser()
+        dispatch(setUser(response.data.eventFiltersInfo))
+    }
+
+    useEffect(() => {
+        dispatch(setIsFetching(checkedAuth))
+        if (checkedAuth) {
+            loadUserData()
+        }
+    }, [checkedAuth])
 
     const handleClick = () => {
         dispatch(setCheckedInput(false))
@@ -30,6 +46,7 @@ const Header = () => {
 
     function handleLogOut() {
         dispatch(setAuth({isAuth: false, expire: ''}))
+        dispatch(setUser({usedCompanyCount: 0, companyLimit: 0,}))
         localStorage.clear()
     }
 
@@ -40,9 +57,10 @@ const Header = () => {
                   style={{backgroundImage: `url(${backgroundImage})`}}
                   onClick={handleClick}
             >
+
             </Link>
 
-            <Info/>
+            {checkedAuth ? <Info isFetching={isFetching}/> : <div></div>}
 
             <MenuButton checkedInput={checkedInput}/>
 

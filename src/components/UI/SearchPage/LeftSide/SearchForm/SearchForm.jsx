@@ -11,23 +11,20 @@ const SearchForm = () => {
         <form className={cl.searchForm}>
             <div className={cl.inputs}>
                 <p>ИНН компании *</p>
-                <FormInput type="number" placeholder="10 цифр"/>
+                <FormInput type="number" placeholder="10 цифр" required/>
                 <p>Тональность</p>
-                <select className={cl.select}>
+                <select className={cl.select} required>
                     <option>Любая</option>
-                    <option>2</option>
+                    <option>Позитивная</option>
+                    <option>Негативная</option>
                 </select>
                 <p>Количество документов в выдаче  *</p>
-                <FormInput type="number" placeholder="от 1 до 1000"/>
+                <FormInput type="number" placeholder="от 1 до 1000" required/>
                 <div>
                     <p>Диапазон поиска*</p>
                     <div className={cl.date}>
-                        <FormInput
-                            type="date"
-                        />
-                        <FormInput
-                            type="date"
-                        />
+                        <FormInput type="date" required/>
+                        <FormInput type="date" required/>
                     </div>
                 </div>
             </div>
