@@ -26,7 +26,7 @@ export const privateRouter = createBrowserRouter([
             },
             {
                 path: "*",
-                element: <Navigate to="/" />
+                element: <Navigate to="/search" />
             }
         ]
     },

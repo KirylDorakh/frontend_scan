@@ -1,0 +1,11 @@
+.inn{
+    display: grid;
+    width: 100%;
+}
+
+.no{
+    display: grid;
+    border: solid 1px #f63e3e;
+    border-radius: 5px;
+    width: 100%;
+}

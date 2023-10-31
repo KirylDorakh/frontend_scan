@@ -1,53 +1,55 @@
-import React from 'react';
-import FormInput from "../../../FormInput/FormInput";
+import React, {useState} from 'react';
 import {searchCheckboxes} from "../../../../../utils/searchCheckboxes";
 import Checkbox from "../../../Checkbox/Checkbox";
 import FormButton from "../../../FormButton/FormButton";
 
 import cl from './SearchForm.module.css'
-import AuthService from "../../../../../API/services/AuthService";
-import {setAuth} from "../../../../../reducers/authReducer";
-import UserService from "../../../../../API/services/UserService";
-import {setUser} from "../../../../../reducers/userReducer";
+
+import SearchService from "../../../../../API/services/SearchService";
+import {searchBody} from "../../../../../utils/searchBody";
+import InnValidator from "./InnValidator/InnValidator";
+
+import TonSelect from "./TonSelect/TonSelect";
+import Limit from "./Limit/Limit";
+import DateRange from "./Date/DateRange";
 
 const SearchForm = () => {
+
+    const [isValid, setIsValid] = useState(false)
+    const [isInnValid, setIsInnValid] = useState(false)
+    const [isLimitValid, setIsLimitValid] = useState(false)
+    const [isRangeValid, setIsRangeValid] = useState(false)
 
     const handleClick = async (event) => {
         event.preventDefault()
         try {
-            const response = await AuthService.login(loginStr, passwordStr)
-            localStorage.setItem('token', response.data.accessToken)
-            localStorage.setItem('expire', response.data.expire)
-            dispatch(setAuth({isAuth: true, ...response.data}))
+            const response = await SearchService.getHistograms(searchBody)
 
-            const responseUserData = await UserService.fetchUser()
-            dispatch(setUser(response.data.eventFiltersInfo))
-            navigate('/')
+            console.log(response)
+            // dispatch(setAuth({isAuth: true, ...response.data}))
+            //
+            // const responseUserData = await UserService.fetchUser()
+            // dispatch(setUser(response.data.eventFiltersInfo))
+            // navigate('/')
         } catch (e){
             console.log(e)
         }
     }
 
+
     return (
         <form className={cl.searchForm}>
             <div className={cl.inputs}>
                 <p>ИНН компании *</p>
-                <FormInput type="number" placeholder="10 цифр" required/>
+                <InnValidator setIsInnValid={setIsInnValid} isInnValid={isInnValid}/>
+
                 <p>Тональность</p>
-                <select className={cl.select} required>
-                    <option>Любая</option>
-                    <option>Позитивная</option>
-                    <option>Негативная</option>
-                </select>
+                <TonSelect />
+
                 <p>Количество документов в выдаче  *</p>
-                <FormInput type="number" placeholder="от 1 до 1000" required/>
-                <div>
-                    <p>Диапазон поиска*</p>
-                    <div className={cl.date}>
-                        <FormInput type="date" required/>
-                        <FormInput type="date" required/>
-                    </div>
-                </div>
+                <Limit isLimitValid={isLimitValid} setIsLimitValid={setIsLimitValid}/>
+
+                <DateRange isRangeValid={isRangeValid} setIsRangeValid={setIsRangeValid}/>
             </div>
 
             <div className={cl.checkboxes}>
@@ -60,7 +62,7 @@ const SearchForm = () => {
                 <FormButton
                     onClick={handleClick}
                     type="submit"
-                    blockedBtn={!!(loginStr && passwordStr)}
+                    blockedBtn={isValid}
                 >
                     Поиск
                 </FormButton>

@@ -1,133 +1,58 @@
 export const searchBody = {
-    "intervalType": "month",
-    "histogramTypes": [
-        "totalDocuments"
-    ],
     "issueDateInterval": {
-        "startDate": "2023-10-30T10:08:54.166Z",
-        "endDate": "2023-10-30T10:08:54.167Z"
+        "startDate": "2022-01-01T00:00:00+03:00",
+        "endDate": "2023-08-31T23:59:59+03:00"
     },
     "searchContext": {
         "targetSearchEntitiesContext": {
             "targetSearchEntities": [
                 {
-                    "type": "company"
+                    "type": "company",
+                    "sparkId": null,
+                    "entityId": null,
+                    "inn": 7710137066,
+                    "maxFullness": true,
+                    "inBusinessNews": null
                 }
             ],
             "onlyMainRole": true,
             "tonality": "any",
-            "onlyWithRiskFactors": true,
+            "onlyWithRiskFactors": false,
             "riskFactors": {
-                "and": [
-                    {
-                        "id": 0
-                    }
-                ],
-                "or": [
-                    {
-                        "id": 0
-                    }
-                ],
-                "not": [
-                    {
-                        "id": 0
-                    }
-                ]
+                "and": [],
+                "or": [],
+                "not": []
             },
             "themes": {
-                "and": [
-                    {
-                        "tonality": "any",
-                        "entityId": 0
-                    }
-                ],
-                "or": [
-                    {
-                        "tonality": "any",
-                        "entityId": 0
-                    }
-                ],
-                "not": [
-                    {
-                        "tonality": "any",
-                        "entityId": 0
-                    }
-                ]
+                "and": [],
+                "or": [],
+                "not": []
             }
         },
-        "searchEntitiesFilter": {
-            "and": [
-                {
-                    "type": "company"
-                }
-            ],
-            "or": [
-                {
-                    "type": "company"
-                }
-            ],
-            "not": [
-                {
-                    "type": "company"
-                }
-            ]
-        },
-        "locationsFilter": {
-            "and": [
-                {
-                    "countryCode": "string",
-                    "regionCode": 0
-                }
-            ],
-            "or": [
-                {
-                    "countryCode": "string",
-                    "regionCode": 0
-                }
-            ],
-            "not": [
-                {
-                    "countryCode": "string",
-                    "regionCode": 0
-                }
-            ]
-        },
         "themesFilter": {
-            "and": [
-                {
-                    "entityId": 0
-                }
-            ],
-            "or": [
-                {
-                    "entityId": 0
-                }
-            ],
-            "not": [
-                {
-                    "entityId": 0
-                }
-            ]
+            "and": [],
+            "or": [],
+            "not": []
         }
     },
     "searchArea": {
-        "includedSources": [
-            0
-        ],
-        "excludedSources": [
-            0
-        ],
-        "includedSourceGroups": [
-            0
-        ],
-        "excludedSourceGroups": [
-            0
-        ]
+        "includedSources": [],
+        "excludedSources": [],
+        "includedSourceGroups": [],
+        "excludedSourceGroups": []
     },
     "attributeFilters": {
         "excludeTechNews": true,
         "excludeAnnouncements": true,
         "excludeDigests": true
     },
-    "similarMode": "none"
+    "similarMode": "duplicates",
+    "limit": 1000,
+    "sortType": "sourceInfluence",
+    "sortDirectionType": "desc",
+    "intervalType": "month",
+    "histogramTypes": [
+        "totalDocuments",
+        "riskFactors"
+    ]
 }
