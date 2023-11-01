@@ -19,7 +19,7 @@ export default function searchReducer(state=defaultState, action){
         case SET_INN:
             return ({
                 ...state,
-                inn: parseInt(action.payload)
+                inn: action.payload
             })
         case SET_TON:
             return ({

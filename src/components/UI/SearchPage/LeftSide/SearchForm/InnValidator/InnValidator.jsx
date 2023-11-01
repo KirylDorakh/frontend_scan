@@ -42,16 +42,28 @@ const InnValidator = ({setIsInnValid, isInnValid}) => {
 
     const handleInputChange = (e) => {
         const inputValue = e.target.value;
+        setIsInnValid(false)
         if (/^\d*$/.test(inputValue)) {
             setInn(inputValue);
         }
     };
 
     useEffect(() => {
-        if(isInnValid){
-            dispatch(setValInn(inn))
+        if(inn){
+            validateInn();
+        } else {
+            setIsInnValid(true)
         }
     }, [inn])
+
+    useEffect(() => {
+        if (!isInnValid){
+            dispatch(setValInn(''))
+        } else if(inn && isInnValid){
+            dispatch(setValInn(inn))
+        }
+
+    }, [isInnValid])
 
     return (
         <div className={isInnValid ? cl.inn : cl.no}>
@@ -61,7 +73,7 @@ const InnValidator = ({setIsInnValid, isInnValid}) => {
                 required
                 onChange={handleInputChange}
 
-                onBlur={validateInn}
+                // onBlur={validateInn}
             />
         </div>
     );

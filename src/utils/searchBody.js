@@ -10,7 +10,7 @@ export const searchBody = {
                     "type": "company",
                     "sparkId": null,
                     "entityId": null,
-                    "inn": 7710137066,
+                    "inn": 0,
                     "maxFullness": true,
                     "inBusinessNews": null
                 }

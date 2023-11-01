@@ -2,7 +2,7 @@ import React, {useEffect, useState} from 'react';
 import FormInput from "../../../../FormInput/FormInput";
 
 import cl from '../InnValidator/inn.module.css'
-import {useDispatch} from "react-redux";
+import {useDispatch, useSelector} from "react-redux";
 import {setLimit} from "../../../../../../reducers/searchReducer";
 
 const Limit = ({isLimitValid, setIsLimitValid}) => {
@@ -16,15 +16,19 @@ const Limit = ({isLimitValid, setIsLimitValid}) => {
         const inputValue = parseInt(e.target.value);
         if(inputValue >= 1 && inputValue <= 1000){
             setIsLimitValid(true)
-        } else {
+        } else if(!inputValue){
+            setIsLimitValid(true)
+        }else {
             setIsLimitValid(false)
         }
         setLim(inputValue)
     }
 
     useEffect(() => {
-        if(isLimitValid){
+        if(isLimitValid && lim){
             dispatch(setLimit(lim))
+        }else{
+            dispatch(setLimit(0))
         }
     }, [lim])
 

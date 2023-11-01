@@ -1,4 +1,4 @@
-import React, {useState} from 'react';
+import React, {useEffect, useState} from 'react';
 import {searchCheckboxes} from "../../../../../utils/searchCheckboxes";
 import Checkbox from "../../../Checkbox/Checkbox";
 import FormButton from "../../../FormButton/FormButton";
@@ -12,13 +12,23 @@ import InnValidator from "./InnValidator/InnValidator";
 import TonSelect from "./TonSelect/TonSelect";
 import Limit from "./Limit/Limit";
 import DateRange from "./Date/DateRange";
+import {useSelector} from "react-redux";
 
 const SearchForm = () => {
 
+    const inn = useSelector(state => state.search.inn)
+    const limit = useSelector(state => state.search.limit)
+    const startDate = useSelector(state => state.search.startDate)
+    const endDate = useSelector(state => state.search.endDate)
+
+    const start = Date.parse(startDate)
+    const end = Date.parse(endDate)
+
+
     const [isValid, setIsValid] = useState(false)
-    const [isInnValid, setIsInnValid] = useState(false)
-    const [isLimitValid, setIsLimitValid] = useState(false)
-    const [isRangeValid, setIsRangeValid] = useState(false)
+    const [isInnValid, setIsInnValid] = useState(true)
+    const [isLimitValid, setIsLimitValid] = useState(true)
+    const [isRangeValid, setIsRangeValid] = useState(true)
 
     const handleClick = async (event) => {
         event.preventDefault()
@@ -36,11 +46,19 @@ const SearchForm = () => {
         }
     }
 
+    useEffect(() => {
+        if (inn && limit && start && end){
+            setIsValid(true)
+        } else {
+            setIsValid(false)
+        }
+    }, [inn, limit, start, end])
 
     return (
         <form className={cl.searchForm}>
             <div className={cl.inputs}>
                 <p>ИНН компании *</p>
+                {/*7710137066*/}
                 <InnValidator setIsInnValid={setIsInnValid} isInnValid={isInnValid}/>
 
                 <p>Тональность</p>
