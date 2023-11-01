@@ -6,8 +6,8 @@ import {setTon} from "../../../../../../reducers/searchReducer";
 
 const tonOptions = {
     'Любая': 'any',
-    'Позитивная': 'pos',
-    'Негативная': 'neg'
+    'Позитивная': 'positive',
+    'Негативная': 'negative'
 };
 
 const TonSelect = () => {

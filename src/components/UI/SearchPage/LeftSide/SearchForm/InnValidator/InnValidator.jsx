@@ -13,20 +13,22 @@ const InnValidator = ({setIsInnValid, isInnValid}) => {
 
     const calculateCheckDigit = (inn, coefficients) => {
         let sum = 0;
-        for (let i = 0; i < coefficients.length; i++) {
-            sum += parseInt(inn[i]) * coefficients[i];
+        for (let i in coefficients) {
+            sum += coefficients[i] * inn[i];
         }
-        return sum % 11;
+        return sum % 11 % 10;
     };
 
     const validateInn = () => {
+        const coefficients = [2, 4, 10, 3, 5, 9, 4, 6, 8];
         if (inn.length === 10) {
-            const controlDigit = calculateCheckDigit(inn.slice(0, 9), [2, 4, 10, 3, 5, 9, 4, 6, 8]);
+            const controlDigit = calculateCheckDigit(inn.slice(0, 9), coefficients);
             if (controlDigit === parseInt(inn[9])) {
                 setIsInnValid(true);
             } else {
                 setIsInnValid(false);
             }
+
         } else if (inn.length === 12) {
             const controlDigit1 = calculateCheckDigit(inn.slice(0, 10), [7, 2, 4, 10, 3, 5, 9, 4, 6, 8]);
             const controlDigit2 = calculateCheckDigit(inn.slice(0, 11), [3, 7, 2, 4, 10, 3, 5, 9, 4, 6, 8]);

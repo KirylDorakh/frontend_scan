@@ -12,9 +12,14 @@ import InnValidator from "./InnValidator/InnValidator";
 import TonSelect from "./TonSelect/TonSelect";
 import Limit from "./Limit/Limit";
 import DateRange from "./Date/DateRange";
-import {useSelector} from "react-redux";
+import {useDispatch, useSelector} from "react-redux";
+import {useNavigate} from "react-router-dom";
+import {setHistograms, setObject} from "../../../../../reducers/resultsReducer";
 
 const SearchForm = () => {
+    const navigate = useNavigate()
+
+    const dispatch = useDispatch()
 
     const inn = useSelector(state => state.search.inn)
     const limit = useSelector(state => state.search.limit)
@@ -32,15 +37,21 @@ const SearchForm = () => {
 
     const handleClick = async (event) => {
         event.preventDefault()
-        try {
-            const response = await SearchService.getHistograms(searchBody)
 
-            console.log(response)
-            // dispatch(setAuth({isAuth: true, ...response.data}))
-            //
-            // const responseUserData = await UserService.fetchUser()
-            // dispatch(setUser(response.data.eventFiltersInfo))
-            // navigate('/')
+        const updatedSearchBody = { ...searchBody }
+        updatedSearchBody.issueDateInterval.startDate = startDate;
+        updatedSearchBody.issueDateInterval.endDate = endDate;
+        updatedSearchBody.searchContext.targetSearchEntitiesContext.targetSearchEntities.inn = inn;
+        updatedSearchBody.limit = limit;
+
+        console.log(updatedSearchBody)
+
+        try {
+            const response = await SearchService.getHistograms(updatedSearchBody)
+            dispatch(setHistograms(response.data))
+            const response1 = await SearchService.getObjectsearch(updatedSearchBody)
+            dispatch(setObject(response1.data))
+            navigate('/results')
         } catch (e){
             console.log(e)
         }
@@ -58,7 +69,7 @@ const SearchForm = () => {
         <form className={cl.searchForm}>
             <div className={cl.inputs}>
                 <p>ИНН компании *</p>
-                {/*7710137066*/}
+                {/*9702009530*/}
                 <InnValidator setIsInnValid={setIsInnValid} isInnValid={isInnValid}/>
 
                 <p>Тональность</p>
